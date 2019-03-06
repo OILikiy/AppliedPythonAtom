@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-def find_indices(input_list, n):
+def find_indices(lst, sm):
     '''
     Метод возвращает индексы двух различных
     элементов listа, таких, что сумма этих элементов равна
@@ -13,4 +13,12 @@ def find_indices(input_list, n):
     :param n: целевая сумма
     :return: tuple из двух индексов или None
     '''
-    raise NotImplementedError
+    s = set()
+    for i in range(len(lst)):
+        num = sm - lst[i]
+        if num >= 0 and num in s:
+            return lst[i]
+        else:
+            return None
+            # s.add(lst[i])
+    # raise NotImplementedError
