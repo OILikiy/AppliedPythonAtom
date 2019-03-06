@@ -14,11 +14,15 @@ def find_indices(lst, sm):
     :return: tuple из двух индексов или None
     '''
     s = set()
-    for i in range(len(lst)):
-        num = sm - lst[i]
-        if num >= 0 and num in s:
-            return lst[i]
-        else:
-            return None
-            # s.add(lst[i])
+    if len(lst) != 0:
+        for i in range(len(lst)):
+            if type(lst[i]) is not str:
+                num = sm - lst[i]
+                if num in s:
+                    return i, lst.index(num)
+                s.add(lst[i])
+            else:
+                continue
+    else:
+        return None
     # raise NotImplementedError
